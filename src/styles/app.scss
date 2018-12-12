@@ -1,13 +1,11 @@
 
-* {
-    color: red;
-}
+@import 'variables';
+
+@import 'base/normalize';
+@import 'base/base';
+@import 'base/type';
 
 #myElement {
     height: 50vh;
     background: red;
-}
-
-body {
-    background: linear-gradient(45deg, #135058, #F1F2B5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
