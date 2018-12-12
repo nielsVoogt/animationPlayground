@@ -8,9 +8,11 @@ import 'hammerjs';
 
 const mc = new Hammer(document.getElementById('myElement'));
 
-const animateEl = (dir) => {
+// ------ Customise these for lr dirs
+
+const animateY = (dir) => {
 	return anime({
-		targets: myElement,
+		targets: '#myElement',
 		translateY: () => {
 			if(dir === 16) {
 				return '+=150';
@@ -21,19 +23,25 @@ const animateEl = (dir) => {
 		duration: 300,
 	});
 }
-	
-mc.on("swipedown swipeup", function(ev) {
-	animateEl(ev.direction);
+
+
+mc.on("swipeleft swiperight", function(ev) {
+  console.log(ev);
 });
 
 // ---------------------------- LETS SEE HOW THIS WILL GO...
 
 const ptr = PullToRefresh.init({
-  mainElement: '#myElement', // above which element?
-  onRefresh: function (done) {
-    setTimeout(function () {
-      done(); // end pull to refresh
-      alert('refresh');
-    }, 1500);
-  }
+    mainElement: '#myElement', // above which element?
+    onInit: function() {
+        console.log('refresh started');
+    },
+    ptrElement: 'header',
+    onRefresh: function (done) {
+        setTimeout(function () {
+            done(); // end pull to refresh
+            alert('refresh');
+        }, 1500);
+    }
 });
+
