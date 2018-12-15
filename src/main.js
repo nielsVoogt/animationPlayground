@@ -2,10 +2,26 @@
 
 import Vue from 'vue'
 import App from './App.vue'
+import VueRouter from 'vue-router'
+
+import Cards from './views/Cards';
+import Home from './views/Home';
+
+Vue.use(VueRouter);
+
+const routes = [
+    { path: '', component: Home },
+    { path: '/cards', component: Cards },
+]
+
+const router = new VueRouter({
+    routes // short for `routes: routes`
+})
 
 new Vue({
-  el: '#app',
-  render: h => h(App)
+    el: '#app',
+    router,
+    render: h => h(App)
 })
 
 // import './styles/app.scss';
