@@ -18,9 +18,9 @@ html {
     line-height: $base-line-height;
 }
 
-body {
+body,
+html {
     min-height: 100%;
     height: 100%;
     overflow-x: hidden;
-
 }
